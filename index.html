@@ -9,9 +9,9 @@
 <body>
   <div class="container">
     <button id="start-btn">Start Experiment</button>
-    <button id="exit-btn" class="hidden">Exit</button>
     <div id="qr-container" class="hidden">
-      <canvas id="qr-code"></canvas>
+      <!-- QR Code SVG Image -->
+      <img id="qr-code" src="qr-code.svg" alt="QR Code" />
     </div>
     <div id="results" class="hidden">
       <h3>Numbers List:</h3>
@@ -26,7 +26,6 @@
       <button id="restart-btn">Restart</button>
     </div>
   </div>
-  <script src="qrcode.min.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
