@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Experiment App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <button id="start-btn">Start Experiment</button>
+    <div id="qr-container" class="hidden">
+      <canvas id="qr-code"></canvas>
+    </div>
+    <div id="results">
+      <h3>Numbers List:</h3>
+      <ul id="number-list"></ul>
+    </div>
+    <div id="chart-container">
+      <canvas id="histogram"></canvas>
+    </div>
+    <div class="buttons">
+      <button id="save-btn" class="hidden">Save Results</button>
+      <button id="stop-btn" class="hidden">Stop</button>
+      <button id="restart-btn" class="hidden">Restart</button>
+    </div>
+  </div>
+  <script src="qrcode.min.js"></script>
+  <script src="script.js"></script>
+  <script src="save_histogram.js"></script>
+</body>
+</html>
