@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Input Numbers</title>
+</head>
+<body>
+  <h1>Submit a Number</h1>
+  <form id="number-form">
+    <input type="number" id="number-input" placeholder="Enter a number" required>
+    <button type="submit">Submit</button>
+  </form>
+  <script>
+    document.getElementById('number-form').addEventListener('submit', function(event) {
+      event.preventDefault();
+      const number = document.getElementById('number-input').value;
+      console.log('Submitted number:', number);
+      // You could send this to a server or update the experiment interface directly.
+      alert('Number submitted: ' + number);
+    });
+  </script>
+</body>
+</html>

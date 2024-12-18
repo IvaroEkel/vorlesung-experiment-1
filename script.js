@@ -1,33 +1,44 @@
 let numbers = [];
-let chart;
-const listElement = document.getElementById("number-list");
 const qrCanvas = document.getElementById("qr-code");
 const qrContainer = document.getElementById("qr-container");
+const startButton = document.getElementById("start-btn");
+const exitButton = document.getElementById("exit-btn");
+const listElement = document.getElementById("number-list");
+const chartContainer = document.getElementById("chart-container");
+const resultsContainer = document.getElementById("results");
 const saveButton = document.getElementById("save-btn");
 const stopButton = document.getElementById("stop-btn");
 const restartButton = document.getElementById("restart-btn");
-const startButton = document.getElementById("start-btn");
-const exitButton = document.getElementById("exit-btn");
-const chartContainer = document.getElementById("chart-container");
-const resultsContainer = document.getElementById("results");
-const buttonsContainer = document.querySelector(".buttons");
+
+let chart;
 
 // Start Experiment
 startButton.addEventListener("click", () => {
   qrContainer.classList.remove("hidden");
   resultsContainer.classList.remove("hidden");
   chartContainer.classList.remove("hidden");
-  buttonsContainer.classList.remove("hidden");
+  saveButton.parentElement.classList.remove("hidden");
   exitButton.classList.remove("hidden");
   startButton.classList.add("hidden");
 
-  const qrCodeUrl = `${window.location.href}?upload=true`;
-  const qr = new QRCode(qrCanvas, { text: qrCodeUrl, width: 150, height: 150 });
+  const qrCodeUrl = "https://ivaroekel.github.io/vorlesung-experiment-1/?input=true";
+  console.log("QR Code URL:", qrCodeUrl);
+
+  try {
+    new QRCode(qrCanvas, {
+      text: qrCodeUrl,
+      width: 150,
+      height: 150,
+    });
+    console.log("QR Code generated successfully.");
+  } catch (error) {
+    console.error("Failed to generate QR Code:", error);
+  }
 
   setupChart();
 });
 
-// Add New Number
+// Add New Number (Simulate receiving from input page)
 function addNumber(num) {
   const timestamp = new Date().toISOString();
   numbers.push({ value: num, timestamp });
@@ -64,7 +75,7 @@ exitButton.addEventListener("click", () => {
   qrContainer.classList.add("hidden");
   resultsContainer.classList.add("hidden");
   chartContainer.classList.add("hidden");
-  buttonsContainer.classList.add("hidden");
+  saveButton.parentElement.classList.add("hidden");
   exitButton.classList.add("hidden");
   startButton.classList.remove("hidden");
 });
