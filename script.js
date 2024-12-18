@@ -2,17 +2,23 @@ let numbers = [];
 let chart;
 const listElement = document.getElementById("number-list");
 const qrCanvas = document.getElementById("qr-code");
+const qrContainer = document.getElementById("qr-container");
 const saveButton = document.getElementById("save-btn");
 const stopButton = document.getElementById("stop-btn");
 const restartButton = document.getElementById("restart-btn");
 const startButton = document.getElementById("start-btn");
+const exitButton = document.getElementById("exit-btn");
+const chartContainer = document.getElementById("chart-container");
+const resultsContainer = document.getElementById("results");
+const buttonsContainer = document.querySelector(".buttons");
 
 // Start Experiment
 startButton.addEventListener("click", () => {
-  document.getElementById("qr-container").classList.remove("hidden");
-  saveButton.classList.remove("hidden");
-  stopButton.classList.remove("hidden");
-  restartButton.classList.remove("hidden");
+  qrContainer.classList.remove("hidden");
+  resultsContainer.classList.remove("hidden");
+  chartContainer.classList.remove("hidden");
+  buttonsContainer.classList.remove("hidden");
+  exitButton.classList.remove("hidden");
   startButton.classList.add("hidden");
 
   const qrCodeUrl = `${window.location.href}?upload=true`;
@@ -51,6 +57,16 @@ restartButton.addEventListener("click", () => {
 saveButton.addEventListener("click", () => {
   saveDataAsCSV();
   saveChartAsImage();
+});
+
+// Exit to Start Page
+exitButton.addEventListener("click", () => {
+  qrContainer.classList.add("hidden");
+  resultsContainer.classList.add("hidden");
+  chartContainer.classList.add("hidden");
+  buttonsContainer.classList.add("hidden");
+  exitButton.classList.add("hidden");
+  startButton.classList.remove("hidden");
 });
 
 function setupChart() {

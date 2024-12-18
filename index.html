@@ -9,20 +9,21 @@
 <body>
   <div class="container">
     <button id="start-btn">Start Experiment</button>
+    <button id="exit-btn" class="hidden">Exit</button>
     <div id="qr-container" class="hidden">
       <canvas id="qr-code"></canvas>
     </div>
-    <div id="results">
+    <div id="results" class="hidden">
       <h3>Numbers List:</h3>
       <ul id="number-list"></ul>
     </div>
-    <div id="chart-container">
+    <div id="chart-container" class="hidden">
       <canvas id="histogram"></canvas>
     </div>
-    <div class="buttons">
-      <button id="save-btn" class="hidden">Save Results</button>
-      <button id="stop-btn" class="hidden">Stop</button>
-      <button id="restart-btn" class="hidden">Restart</button>
+    <div class="buttons hidden">
+      <button id="save-btn">Save Results</button>
+      <button id="stop-btn">Stop</button>
+      <button id="restart-btn">Restart</button>
     </div>
   </div>
   <script src="qrcode.min.js"></script>
